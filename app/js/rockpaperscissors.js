@@ -25,7 +25,7 @@ function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    return move=move||getIntput();
+    return playerMove=move||getIntput();
 }
 
 
@@ -33,7 +33,7 @@ function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    return move=move||randomPlay();
+    return computerMove=move||randomPlay();
 }
 
 function getWinner(playerMove,computerMove) {
@@ -42,6 +42,14 @@ function getWinner(playerMove,computerMove) {
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     /* YOUR CODE HERE */
+    if (playerMove==="rock" && computerMove==="scissors" ||(playerMove==="paper" && computerMove==="rock") ||(playerMove==="scissors" && computerMove==="paper")) {
+        winner="Player Wins!";
+    } else if (playerMove==="scissors" && computerMove==="rock" || (playerMove==="rock" && computerMove==="paper") || (playerMove==="paper" && computerMove==="scissors")) { 
+        winner="Computer Wins!";
+    } else {
+        winner="Tie!";
+    }
+
     return winner;
 }
 
