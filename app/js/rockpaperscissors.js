@@ -25,7 +25,7 @@ function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    return playerMove=move||getIntput();
+    return playerMove=move||getInput();
 }
 
 
@@ -43,7 +43,7 @@ function getWinner(playerMove,computerMove) {
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     if (playerMove==="rock" && computerMove==="scissors" ||(playerMove==="paper" && computerMove==="rock") ||(playerMove==="scissors" && computerMove==="paper")) {
         winner="Player Wins!";
-    } else if (playerMove==="scissors" && computerMove==="rock" || (playerMove==="rock" && computerMove==="paper") || (playerMove==="paper" && computerMove==="scissors")) { 
+    } else if (playerMove === "scissors" && computerMove==="rock" || (playerMove==="rock" && computerMove==="paper") || (playerMove==="paper" && computerMove==="scissors")) { 
         winner="Computer Wins!";
     } else {
         winner="Tie!";
@@ -56,8 +56,21 @@ function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
+    while (playerWins < 5 && computerWins < 5) {
+        var playerMove = getPlayerMove();
+        var computerMove = getComputerMove();
+        var winner = getWinner(playerMove, computerMove);
+        if (winner === "Player Wins!") {
+            playerWins +=1;
+        } else if (winner === "Computer Wins!") {
+            computerWins +=1;
+        }
+        
+        
+        console.log("You chose '" + playerMove + "' while the computer chose '" + computerMove + "'.");
+        console.log("Winner is: " + winner + ".");
+        console.log("The score is currently " + playerWins + " to " + computerWins + ".\n");
+    }
     return [playerWins, computerWins];
 }
 
